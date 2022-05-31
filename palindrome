@@ -1,0 +1,32 @@
+function reverseString(string){
+    var arr = string.split("").reverse().join("");
+    return arr;
+}
+
+function palindrome(string)
+{
+    return string === reverseString(string);
+}
+let string = "abcdedcba"
+console.log(palindrome("abcdedcba"));
+console.log(string.slice(0,string.length-1));
+console.log(string.slice(1,string.length));
+
+
+function max_pal(string)
+{
+    for( var len = string.length; len >1; len--)
+    {
+        for(var i=0; i<= string.length-len; i++)
+        {
+            var sub_string=string.slice(i,len+i);
+            if (palindrome(sub_string))
+            {
+                return sub_string;
+            }
+        }
+    }
+}
+
+console.log(max_pal("abracadabra"));
+console.log(max_pal("HYTBCABADEFGHABCDEDCBAGHTFYW12345678987654321ZWETYGDE"));
